@@ -21,4 +21,5 @@ public class SubtractTest {
         Calculator calculator = new Calculator();
         assertThat(calculator.sub(a, b)).isEqualTo(expected, offset(1E-5));
     }
+
 }

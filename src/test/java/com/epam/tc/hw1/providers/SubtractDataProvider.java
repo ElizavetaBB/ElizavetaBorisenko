@@ -24,4 +24,5 @@ public class SubtractDataProvider {
                 {8.6, 3, 5.6},
         };
     }
+
 }

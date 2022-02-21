@@ -21,4 +21,5 @@ public class SumTest {
         Calculator calculator = new Calculator();
         assertThat(calculator.sum(a, b)).isEqualTo(expected, offset(1E-5));
     }
+
 }

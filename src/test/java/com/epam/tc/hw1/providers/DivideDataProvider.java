@@ -15,7 +15,6 @@ public class DivideDataProvider {
         };
     }
 
-
     @DataProvider(name = "correct double divide data")
     public static Object[][] getDoubleData() {
         return new Object[][]{
@@ -45,4 +44,5 @@ public class DivideDataProvider {
                 {0, 0, new NumberFormatException("Attempt to divide by zero")}
         };
     }
+
 }

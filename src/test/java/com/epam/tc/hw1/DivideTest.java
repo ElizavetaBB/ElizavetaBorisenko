@@ -6,8 +6,6 @@ import static org.assertj.core.api.Assertions.offset;
 
 import com.epam.tat.module4.Calculator;
 import com.epam.tc.hw1.providers.DivideDataProvider;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 @Test(groups = "divide")

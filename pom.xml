@@ -98,19 +98,19 @@
 
     <profiles>
         <profile>
-            <id>allTests</id>
+            <id>AllTests</id>
             <properties>
                 <testng.suite.file>${testng.hw1.configs.path}/AllTestsSuite.xml</testng.suite.file>
             </properties>
         </profile>
         <profile>
-            <id>sumAndSubtractTests</id>
+            <id>SumAndSubtractTests</id>
             <properties>
                 <testng.suite.file>${testng.hw1.configs.path}/SumSubtractSuite.xml</testng.suite.file>
             </properties>
         </profile>
         <profile>
-            <id>multiplyAndDivideTests</id>
+            <id>MultiplyAndDivideTests</id>
             <properties>
                 <testng.suite.file>${testng.hw1.configs.path}/MultiplyDivideSuite.xml</testng.suite.file>
             </properties>
