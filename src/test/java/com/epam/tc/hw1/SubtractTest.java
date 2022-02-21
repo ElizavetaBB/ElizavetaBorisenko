@@ -1,7 +1,7 @@
 package com.epam.tc.hw1;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.offset;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.offset;
 
 import com.epam.tat.module4.Calculator;
 import com.epam.tc.hw1.providers.SubtractDataProvider;
