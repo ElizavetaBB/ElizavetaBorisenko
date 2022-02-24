@@ -17,6 +17,7 @@
         <calculator.systemPath>${test.resources.dir}/calculator-1.0.jar</calculator.systemPath>
         <testng.configs.path>${project.build.testOutputDirectory}/testng</testng.configs.path>
         <testng.hw1.configs.path>${testng.configs.path}/hw1</testng.hw1.configs.path>
+        <testng.hw2.configs.path>${testng.configs.path}/hw2</testng.hw2.configs.path>
         <testng.suite.file>${testng.hw1.configs.path}/SumSubtractSuite.xml</testng.suite.file>
 
         <testng.version>7.5</testng.version>
@@ -125,6 +126,18 @@
             <id>MultiplyAndDivideTests</id>
             <properties>
                 <testng.suite.file>${testng.hw1.configs.path}/MultiplyDivideSuite.xml</testng.suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>Exercise_1 Homework_2</id>
+            <properties>
+                <testng.suite.file>${testng.hw2.configs.path}/Exercise1_Suite.xml</testng.suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>Exercise_2 Homework_2</id>
+            <properties>
+                <testng.suite.file>${testng.hw2.configs.path}/Exercise2_Suite.xml</testng.suite.file>
             </properties>
         </profile>
     </profiles>

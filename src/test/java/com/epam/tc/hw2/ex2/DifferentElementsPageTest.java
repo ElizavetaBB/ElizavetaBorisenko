@@ -60,18 +60,20 @@ public class DifferentElementsPageTest extends BasePageTest {
         WebElement service = driver.findElement(By.cssSelector(".nav > li.dropdown"));
         service.click();
 
-        driverWait.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//ul[@class=\"dropdown-menu\"]/li/a[contains(text(),\"Different elements\")]"))).click();
+        WebElement link = driverWait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+                String.format(
+                        "//ul[@class=\"dropdown-menu\"]/li/*[contains(text(),\"%s\")]",
+                        Utils.DIFFERENT_ELEMENTS_LINK_NAME))));
+        link.click();
 
         softAssertions.assertThat(driver.getTitle()).as("Different Elements Page Title")
                 .isEqualTo(Utils.DIFFERENT_ELEMENTS_PAGE_TITLE);
     }
 
     private void selectCheckboxes(SoftAssertions softAssertions) {
-        List<WebElement> checkBoxes = driverWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                        By.className("label-checkbox")))
+        List<WebElement> checkBoxes = driver.findElements((By.className("label-checkbox")))
                 .stream()
-                .filter(x -> Utils.checkboxesNames.contains(x.getText()))
+                .filter(x -> Utils.CHECKBOXES_NAMES.contains(x.getText()))
                 .collect(Collectors.toList());
         for (WebElement checkBox : checkBoxes) {
             checkBox.click();
@@ -81,8 +83,8 @@ public class DifferentElementsPageTest extends BasePageTest {
     }
 
     private void selectRadioButtons(SoftAssertions softAssertions) {
-        WebElement radioButton = driverWait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath(String.format("//label[contains(., \"%s\")]", Utils.RADIOBUTTON_NAME))));
+        WebElement radioButton = driver.findElement(By.xpath(
+                String.format("//label[contains(., \"%s\")]", Utils.RADIOBUTTON_NAME)));
         radioButton.click();
 
         softAssertions.assertThat(radioButton).as("Radio button selected").satisfies(WebElement::isSelected);
@@ -97,15 +99,15 @@ public class DifferentElementsPageTest extends BasePageTest {
     }
 
     private void testCheckboxesLog(SoftAssertions softAssertions) {
-        for (int i = 0; i < Utils.checkboxesNames.size(); i++) {
-            String checkBoxesLog = driverWait.until(ExpectedConditions.visibilityOfElementLocated(
-                            By.xpath(String.format("//ul[contains(@class,\"panel-body-list\")]/li[contains(.,\"%s\")]",
-                                    Utils.checkboxesNames.get(i)))))
+        for (int i = 0; i < Utils.CHECKBOXES_NAMES.size(); i++) {
+            String checkBoxesLog = driver.findElement(By.xpath(
+                    String.format("//ul[contains(@class,\"panel-body-list\")]/li[contains(.,\"%s\")]",
+                                    Utils.CHECKBOXES_NAMES.get(i))))
                     .getText();
 
             softAssertions.assertThat(checkBoxesLog).as("Checkboxes log").matches(x -> {
-                for (int j = 0; j < Utils.checkboxesNames.size(); j++) {
-                    if (x.matches(Utils.checkboxesLog.get(j))) {
+                for (int j = 0; j < Utils.CHECKBOXES_NAMES.size(); j++) {
+                    if (x.matches(Utils.CHECKBOXES_LOG.get(j))) {
                         return true;
                     }
                 }
@@ -115,20 +117,20 @@ public class DifferentElementsPageTest extends BasePageTest {
     }
 
     private void testRadioButtonLog(SoftAssertions softAssertions) {
-        String radioLog = driverWait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath(String.format(
+        String radioLog = driver.findElement(By.xpath(String.format(
                         "//ul[contains(@class,\"panel-body-list\")]/li[contains(.,\"%s\")]", Utils.RADIOBUTTON_NAME)
-                ))).getText();
+                )).getText();
 
-        softAssertions.assertThat(radioLog).as("Radio button log").matches(x -> x.matches(Utils.radioLog));
+        softAssertions.assertThat(radioLog).as("Radio button log")
+                .matches(x -> x.matches(Utils.RADIO_LOG));
     }
 
     private void testDropdownLog(SoftAssertions softAssertions) {
-        String dropdownLog = driverWait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath(String.format(
+        String dropdownLog = driver.findElement(By.xpath(String.format(
                         "//ul[contains(@class,\"panel-body-list\")]/li[contains(.,\"%s\")]", Utils.DROPDOWN_NAME)
-                ))).getText();
+                )).getText();
 
-        softAssertions.assertThat(dropdownLog).as("Dropdown log").matches(x -> x.matches(Utils.dropdownLog));
+        softAssertions.assertThat(dropdownLog).as("Dropdown log")
+                .matches(x -> x.matches(Utils.DROPDOWN_LOG));
     }
 }

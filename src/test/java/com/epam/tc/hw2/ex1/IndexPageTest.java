@@ -78,12 +78,14 @@ public class IndexPageTest extends BasePageTest {
 
     private void testFrameButton(SoftAssertions softAssertions) {
         WebElement frameButton = null;
+        String frameButtonText = "";
         List<WebElement> frames = driver.findElements(By.tagName("iframe"));
         for (WebElement frame : frames) {
             driverWait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frame));
             try {
                 frameButton = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.id("frame-button")));
                 if (frameButton != null) {
+                    frameButtonText = frameButton.getAttribute("value");
                     break;
                 }
             } catch (TimeoutException timeoutException) {
@@ -93,8 +95,8 @@ public class IndexPageTest extends BasePageTest {
             }
         }
 
-        softAssertions.assertThat(frameButton).isNotNull();
-        softAssertions.assertThat(frameButton.getText()).isEqualTo(Utils.FRAME_BUTTON);
+        softAssertions.assertThat(frameButton).as("Frame Button exists").isNotNull();
+        softAssertions.assertThat(frameButtonText).as("Frame Button text").isEqualTo(Utils.FRAME_BUTTON);
     }
 
     private void testLeftSection(SoftAssertions softAssertions) {
