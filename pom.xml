@@ -18,7 +18,7 @@
         <testng.configs.path>${project.build.testOutputDirectory}/testng</testng.configs.path>
         <testng.hw1.configs.path>${testng.configs.path}/hw1</testng.hw1.configs.path>
         <testng.hw2.configs.path>${testng.configs.path}/hw2</testng.hw2.configs.path>
-        <testng.suite.file>${testng.hw1.configs.path}/SumSubtractSuite.xml</testng.suite.file>
+        <testng.suite.file>${testng.hw2.configs.path}/Exercise1_Suite.xml</testng.suite.file>
 
         <testng.version>7.5</testng.version>
         <assertj-core.version>3.22.0</assertj-core.version>
