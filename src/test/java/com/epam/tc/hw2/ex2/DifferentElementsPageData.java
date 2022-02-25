@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class DifferentElementsPageData extends BaseData {
-    public static String differentElementsLinkName = "Different elements";
+
     public static String differentElementsPageTitle = "Different Elements";
     public static List<String> checkboxesNames = List.of(
             "Water", "Wind"
