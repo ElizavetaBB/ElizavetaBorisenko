@@ -1,11 +1,11 @@
 package com.epam.tc.hw3.ex2;
 
-import com.epam.tc.hw3.BaseData;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DifferentElementsPageData extends BaseData {
+public class DifferentElementsPageData {
 
+    public static String PROPERTIES_PATH = "src/test/resources/hw3/test.properties";
     public static String differentElementsPageTitle = "Different Elements";
     public static List<String> checkboxesNames = List.of(
             "Water", "Wind"

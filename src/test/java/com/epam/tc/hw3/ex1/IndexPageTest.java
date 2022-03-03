@@ -1,7 +1,7 @@
 package com.epam.tc.hw3.ex1;
 
-import com.epam.tc.hw3.BaseData;
 import com.epam.tc.hw3.BasePageTest;
+import com.epam.tc.hw3.PropertyReader;
 import com.epam.tc.hw3.components.LoginComponent;
 import com.epam.tc.hw3.fluent.IndexFluentPage;
 import com.epam.tc.hw3.voids.IndexPage;
@@ -15,10 +15,15 @@ public class IndexPageTest extends BasePageTest {
     @Test
     public void testIndexPageWithVoidPages() {
         SoftAssertions softAssertions = new SoftAssertions();
+        PropertyReader propertyReader = new PropertyReader(IndexPageData.PROPERTIES_PATH);
         IndexPage indexPage = new IndexPage(driver, wait);
 
+        // 1. Open test site by URL
+        driver.navigate().to(propertyReader.getProperty("page_url"));
+
         // 2. Assert Browser title
-        softAssertions.assertThat(indexPage.getTitle()).isEqualTo(IndexPageData.HOME_PAGE_TITLE);
+        softAssertions.assertThat(indexPage.getTitle()).isEqualTo(
+                propertyReader.getProperty("home_page_title"));
 
         // 3. Perform login
         LoginComponent loginComponent = indexPage.header().getLoginComponent();
@@ -75,10 +80,15 @@ public class IndexPageTest extends BasePageTest {
     @Test
     public void testIndexPageWithFluentPages() {
         SoftAssertions softAssertions = new SoftAssertions();
+        PropertyReader propertyReader = new PropertyReader(IndexPageData.PROPERTIES_PATH);
         IndexFluentPage indexPage = new IndexFluentPage(driver, wait);
 
+        // 1. Open test site by URL
+        driver.navigate().to(propertyReader.getProperty("page_url"));
+
         // 2. Assert Browser title
-        softAssertions.assertThat(indexPage.getTitle()).isEqualTo(BaseData.HOME_PAGE_TITLE);
+        softAssertions.assertThat(indexPage.getTitle()).isEqualTo(
+                propertyReader.getProperty("home_page_title"));
 
         // 3. Perform login
         LoginComponent loginComponent = indexPage.header().getLoginComponent();
