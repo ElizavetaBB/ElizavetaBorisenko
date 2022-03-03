@@ -1,7 +1,7 @@
 package com.epam.tc.hw3.ex2;
 
-import com.epam.tc.hw3.BaseData;
 import com.epam.tc.hw3.BasePageTest;
+import com.epam.tc.hw3.PropertyReader;
 import com.epam.tc.hw3.components.LogComponent;
 import com.epam.tc.hw3.components.LoginComponent;
 import com.epam.tc.hw3.fluent.DifferentElementsFluentPage;
@@ -18,10 +18,15 @@ public class DifferentElementsPageTest extends BasePageTest {
     @Test
     public void testDifferentElementsPageWithVoidPages() {
         SoftAssertions softAssertions = new SoftAssertions();
+        PropertyReader propertyReader = new PropertyReader(DifferentElementsPageData.PROPERTIES_PATH);
         IndexPage indexPage = new IndexPage(driver, wait);
 
+        // 1. Open test site by URL
+        driver.navigate().to(propertyReader.getProperty("page_url"));
+
         // 2. Assert Browser title
-        softAssertions.assertThat(indexPage.getTitle()).isEqualTo(BaseData.HOME_PAGE_TITLE);
+        softAssertions.assertThat(indexPage.getTitle()).isEqualTo(
+                propertyReader.getProperty("home_page_title"));
 
         // 3. Perform login
         LoginComponent loginComponent = indexPage.header().getLoginComponent();
@@ -84,10 +89,15 @@ public class DifferentElementsPageTest extends BasePageTest {
     @Test
     public void testDifferentElementsPageWithFluentPages() {
         SoftAssertions softAssertions = new SoftAssertions();
+        PropertyReader propertyReader = new PropertyReader(DifferentElementsPageData.PROPERTIES_PATH);
         IndexFluentPage indexPage = new IndexFluentPage(driver, wait);
 
+        // 1. Open test site by URL
+        driver.navigate().to(propertyReader.getProperty("page_url"));
+
         // 2. Assert Browser title
-        softAssertions.assertThat(indexPage.getTitle()).isEqualTo(BaseData.HOME_PAGE_TITLE);
+        softAssertions.assertThat(indexPage.getTitle()).isEqualTo(
+                propertyReader.getProperty("home_page_title"));
 
         // 3. Perform login
         LoginComponent loginComponent = indexPage.header().getLoginComponent();

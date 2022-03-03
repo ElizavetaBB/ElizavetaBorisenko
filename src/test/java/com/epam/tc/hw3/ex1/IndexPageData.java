@@ -1,10 +1,10 @@
 package com.epam.tc.hw3.ex1;
 
-import com.epam.tc.hw3.BaseData;
 import java.util.List;
 
-public class IndexPageData extends BaseData {
+public class IndexPageData {
 
+    public static String PROPERTIES_PATH = "src/test/resources/hw3/test.properties";
     public static List<String> headerItems = List.of(
             "HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"
     );
