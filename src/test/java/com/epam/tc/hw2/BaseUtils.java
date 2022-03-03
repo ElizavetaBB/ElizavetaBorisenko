@@ -11,18 +11,21 @@ public class BaseUtils {
 
     protected WebDriver driver;
     protected WebDriverWait driverWait;
+    protected PropertyReader propertyReader;
 
-    public BaseUtils(WebDriver webDriver, WebDriverWait webDriverWait) {
+    public BaseUtils(WebDriver webDriver, WebDriverWait webDriverWait, PropertyReader propertyReader) {
         this.driver = webDriver;
         this.driverWait = webDriverWait;
+        this.propertyReader = propertyReader;
     }
 
     public void openSite() {
-        driver.get(BaseData.PAGE_URL);
+        driver.get(propertyReader.getProperty("page_url"));
     }
 
     public void testBrowserTitle(SoftAssertions softAssertions) {
-        softAssertions.assertThat(driver.getTitle()).as("Browser Title").isEqualTo(BaseData.HOME_PAGE_TITLE);
+        softAssertions.assertThat(driver.getTitle()).as("Browser Title")
+                .isEqualTo(propertyReader.getProperty("home_page_title"));
     }
 
     public void performLogin() {
@@ -30,10 +33,10 @@ public class BaseUtils {
         photo.click();
 
         WebElement login = driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("name")));
-        login.sendKeys(BaseData.LOGIN);
+        login.sendKeys(propertyReader.getProperty("login"));
 
         WebElement password = driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("password")));
-        password.sendKeys(BaseData.PASSWORD);
+        password.sendKeys(propertyReader.getProperty("password"));
 
         WebElement submitButton = driver.findElement(By.id("login-button"));
         submitButton.click();
@@ -41,7 +44,8 @@ public class BaseUtils {
 
     public void testUsername(SoftAssertions softAssertions) {
         String userName = driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user-name"))).getText();
-        softAssertions.assertThat(userName).as("User name").isEqualTo(BaseData.USERNAME);
+        softAssertions.assertThat(userName).as("User name")
+                .isEqualTo(propertyReader.getProperty("username"));
     }
 
 }

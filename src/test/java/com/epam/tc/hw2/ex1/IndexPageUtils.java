@@ -1,6 +1,7 @@
 package com.epam.tc.hw2.ex1;
 
 import com.epam.tc.hw2.BaseUtils;
+import com.epam.tc.hw2.PropertyReader;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.assertj.core.api.SoftAssertions;
@@ -13,8 +14,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class IndexPageUtils extends BaseUtils {
 
-    public IndexPageUtils(WebDriver webDriver, WebDriverWait webDriverWait) {
-        super(webDriver, webDriverWait);
+    public IndexPageUtils(WebDriver webDriver, WebDriverWait webDriverWait, PropertyReader propertyReader) {
+        super(webDriver, webDriverWait, propertyReader);
     }
 
     protected void testHeaderSection(SoftAssertions softAssertions) {

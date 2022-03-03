@@ -1,6 +1,7 @@
 package com.epam.tc.hw2.ex2;
 
 import com.epam.tc.hw2.BasePageTest;
+import com.epam.tc.hw2.PropertyReader;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 
@@ -9,7 +10,8 @@ public class DifferentElementsPageTest extends BasePageTest {
     @Test
     public void testDifferentElementsPage() {
         SoftAssertions softAssertions = new SoftAssertions();
-        DifferentElementsPageUtils utils = new DifferentElementsPageUtils(driver, driverWait);
+        DifferentElementsPageUtils utils = new DifferentElementsPageUtils(driver, driverWait,
+                new PropertyReader(DifferentElementsPageData.propertiesPath));
 
         // 1. Open test site by URL
         utils.openSite();

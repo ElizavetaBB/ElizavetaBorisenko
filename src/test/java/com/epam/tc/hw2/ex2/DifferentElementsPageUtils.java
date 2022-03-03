@@ -5,6 +5,7 @@ import static com.epam.tc.hw2.ex2.DifferentElementsPageData.checkboxesNames;
 import static com.epam.tc.hw2.ex2.DifferentElementsPageData.radioButtonName;
 
 import com.epam.tc.hw2.BaseUtils;
+import com.epam.tc.hw2.PropertyReader;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.assertj.core.api.SoftAssertions;
@@ -17,8 +18,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DifferentElementsPageUtils extends BaseUtils {
 
-    public DifferentElementsPageUtils(WebDriver webDriver, WebDriverWait webDriverWait) {
-        super(webDriver, webDriverWait);
+    public DifferentElementsPageUtils(WebDriver webDriver, WebDriverWait webDriverWait, PropertyReader propertyReader) {
+        super(webDriver, webDriverWait, propertyReader);
     }
 
     public void openDifferentElementsPage(SoftAssertions softAssertions) {

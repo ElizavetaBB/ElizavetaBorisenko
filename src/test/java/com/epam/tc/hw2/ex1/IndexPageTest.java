@@ -1,6 +1,7 @@
 package com.epam.tc.hw2.ex1;
 
 import com.epam.tc.hw2.BasePageTest;
+import com.epam.tc.hw2.PropertyReader;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 
@@ -9,7 +10,8 @@ public class IndexPageTest extends BasePageTest {
     @Test
     public void testIndexPage() {
         SoftAssertions softAssertions = new SoftAssertions();
-        IndexPageUtils indexPageUtils = new IndexPageUtils(driver, driverWait);
+        IndexPageUtils indexPageUtils = new IndexPageUtils(driver, driverWait,
+                new PropertyReader(IndexPageData.propertiesPath));
 
         // 1. Open test site by URL
         indexPageUtils.openSite();
