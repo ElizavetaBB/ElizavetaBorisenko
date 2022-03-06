@@ -13,7 +13,6 @@ public abstract class BasePageTest {
 
     protected WebDriver driver;
     protected WebDriverWait wait;
-    protected PropertyReader propertyReader;
     private static final int TIMEOUT_DURATION = 10;
 
     @BeforeClass
