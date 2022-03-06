@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class DifferentElementsPageData {
 
-    public static String PROPERTIES_PATH = "src/test/resources/hw3/test.properties";
+    public static String PROPERTIES_PATH = "src/test/resources/hw4/test.properties";
     public static String differentElementsPageTitle = "Different Elements";
     public static List<String> checkboxesNames = List.of(
             "Water", "Wind"
