@@ -25,6 +25,8 @@
         <checkstyle.version>9.2.1</checkstyle.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+        <selenium-java.version>4.1.2</selenium-java.version>
+        <webdrivermanager.version>4.4.3</webdrivermanager.version>
         <slf4j-simple.version>1.7.36</slf4j-simple.version>
         <lombok.version>1.18.20</lombok.version>
         <allure-testng.version>2.17.3</allure-testng.version>
@@ -52,6 +54,17 @@
             <version>${calculator.version}</version>
             <scope>system</scope>
             <systemPath>${calculator.systemPath}</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
         </dependency>
 
         <dependency>
