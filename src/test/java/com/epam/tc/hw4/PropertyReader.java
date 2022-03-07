@@ -5,19 +5,34 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class PropertyReader {
+    private Properties propertyReader;
 
-    private Properties property;
-
-    public PropertyReader(final String path) {
-        try (FileReader fileReader = new FileReader(path)) {
-            property = new Properties();
-            property.load(fileReader);
+    public PropertyReader(final String propertyPath) {
+        try (FileReader fileReader = new FileReader(propertyPath)) {
+            propertyReader = new Properties();
+            propertyReader.load(fileReader);
         } catch (IOException io) {
             io.printStackTrace();
         }
     }
 
-    public String getProperty(final String key) {
-        return property.getProperty(key);
+    public String getUserName() {
+        return propertyReader.getProperty("username");
+    }
+
+    public String getPageUrl() {
+        return propertyReader.getProperty("page_url");
+    }
+
+    public String getHomePageTitle() {
+        return propertyReader.getProperty("home_page_title");
+    }
+
+    public String getLogin() {
+        return propertyReader.getProperty("login");
+    }
+
+    public String getPassword() {
+        return propertyReader.getProperty("password");
     }
 }
