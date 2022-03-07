@@ -1,7 +1,9 @@
-package com.epam.tc.hw4.ex1;
+package com.epam.tc.hw4.failed;
 
 import com.epam.tc.hw4.BasePageTest;
 import com.epam.tc.hw4.PropertyReader;
+import com.epam.tc.hw4.ex1.IndexPageData;
+import com.epam.tc.hw4.ex1.IndexPageUtils;
 import com.epam.tc.hw4.voids.IndexPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -9,9 +11,9 @@ import io.qameta.allure.Story;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 
-public class IndexPageTest extends BasePageTest {
+public class IndexPageFailedTest extends BasePageTest {
 
-    @Test(description = "Test Index Page")
+    @Test(description = "Test Index Page with failure")
     @Description("Test login, header items, images and their descriptions, iframes, left section items.")
     @Feature("Index Page")
     @Story("User can login and see header items, images and their descriptions, "
@@ -20,7 +22,7 @@ public class IndexPageTest extends BasePageTest {
         SoftAssertions softAssertions = new SoftAssertions();
         PropertyReader propertyReader = new PropertyReader(IndexPageData.PROPERTIES_PATH);
         IndexPage indexPage = new IndexPage(driver, wait);
-        IndexPageUtils indexPageUtils = new IndexPageUtils(this.driver, this.wait, indexPage);
+        IndexPageFailedUtils indexPageUtils = new IndexPageFailedUtils(this.driver, this.wait, indexPage);
 
         // 1. Open test site by URL
         indexPageUtils.openSite(propertyReader.getPageUrl());

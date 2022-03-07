@@ -12,8 +12,8 @@ import org.testng.annotations.Test;
 public class DifferentElementsPageTest extends BasePageTest {
 
     @Test(description = "Test Different Elements Page")
-    @Description("Test login, header menu, images on the page, image descriptions  on the page, \n"
-            + "iframes on the page. Find iframe with FrameButton. Test left menu.")
+    @Description("Test login, opening Different Elements Page, checkboxes, "
+            + "radio buttons, dropdown and their log")
     @Feature("Different Elements Page")
     @Story("User can login, open Different Elements Page and select checkboxes, "
             + "radio button and dropdown, see log of selected elements")
