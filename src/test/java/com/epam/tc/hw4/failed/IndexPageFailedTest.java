@@ -4,7 +4,6 @@ import com.epam.tc.hw4.BasePageTest;
 import com.epam.tc.hw4.PropertyReader;
 import com.epam.tc.hw4.ex1.IndexPageData;
 import com.epam.tc.hw4.ex1.IndexPageUtils;
-import com.epam.tc.hw4.voids.IndexPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -21,14 +20,13 @@ public class IndexPageFailedTest extends BasePageTest {
     public void testIndexPageWithVoidPages() {
         SoftAssertions softAssertions = new SoftAssertions();
         PropertyReader propertyReader = new PropertyReader(IndexPageData.PROPERTIES_PATH);
-        IndexPage indexPage = new IndexPage(driver, wait);
-        IndexPageFailedUtils indexPageUtils = new IndexPageFailedUtils(this.driver, this.wait, indexPage);
+        IndexPageFailedUtils indexPageUtils = new IndexPageFailedUtils(this.driver, this.wait);
 
         // 1. Open test site by URL
         indexPageUtils.openSite(propertyReader.getPageUrl());
 
         // 2. Assert Browser title
-        indexPageUtils.homePageTitleTest(softAssertions, indexPage.getTitle());
+        indexPageUtils.homePageTitleTest(softAssertions, propertyReader.getHomePageTitle());
 
         // 3. Perform login
         indexPageUtils.performLogin(propertyReader.getLogin(), propertyReader.getPassword());
@@ -37,21 +35,21 @@ public class IndexPageFailedTest extends BasePageTest {
         indexPageUtils.usernameTest(softAssertions, propertyReader.getUserName());
 
         // 5. Assert that there are 4 items on the header section are displayed and they have proper texts
-        indexPageUtils.headerItemsTest(softAssertions);
+        indexPageUtils.headerItemsTest(softAssertions, IndexPageData.headerItems);
 
         // 6. Assert that there are 4 images on the Index Page and they are displayed
-        indexPageUtils.imageItemsTest(softAssertions);
+        indexPageUtils.imageItemsTest(softAssertions, IndexPageData.imagesNumber);
 
         // 7. Assert that there are 4 texts on the Index Page under icons and they have proper text
-        indexPageUtils.imagesItemsTextTest(softAssertions);
+        indexPageUtils.imagesItemsTextTest(softAssertions, IndexPageData.iconsText);
 
         // 8. Assert that there is the iframe with “Frame Button” exist
         // 9. Switch to the iframe and check that there is “Frame Button” in the iframe
         // 10. Switch to original window back
-        indexPageUtils.iframeTest(softAssertions);
+        indexPageUtils.iframeTest(softAssertions, IndexPageData.frameButton);
 
         // 11. Assert that there are 5 items in the Left Section are displayed and they have proper text
-        indexPageUtils.leftSectionItemsTest(softAssertions);
+        indexPageUtils.leftSectionItemsTest(softAssertions, IndexPageData.leftSectionItems);
 
         softAssertions.assertAll();
     }

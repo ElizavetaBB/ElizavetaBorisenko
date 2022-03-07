@@ -15,8 +15,8 @@ public class DifferentElementsPageUtils extends BasePageUtils {
 
     private DifferentElementsPage differentElementsPage;
 
-    public DifferentElementsPageUtils(WebDriver driver, WebDriverWait wait, IndexPage indexPage) {
-        super(driver, wait, indexPage);
+    public DifferentElementsPageUtils(WebDriver driver, WebDriverWait wait) {
+        super(driver, wait);
     }
 
     @Step("Open Different Elements Page")

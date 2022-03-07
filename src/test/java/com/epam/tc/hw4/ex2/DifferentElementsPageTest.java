@@ -20,15 +20,14 @@ public class DifferentElementsPageTest extends BasePageTest {
     public void testDifferentElementsPageWithVoidPages() {
         SoftAssertions softAssertions = new SoftAssertions();
         PropertyReader propertyReader = new PropertyReader(DifferentElementsPageData.PROPERTIES_PATH);
-        IndexPage indexPage = new IndexPage(driver, wait);
         DifferentElementsPageUtils differentElementsPageUtils = new
-                DifferentElementsPageUtils(this.driver, this.wait, indexPage);
+                DifferentElementsPageUtils(this.driver, this.wait);
 
         // 1. Open test site by URL
         differentElementsPageUtils.openSite(propertyReader.getPageUrl());
 
         // 2. Assert Browser title
-        differentElementsPageUtils.homePageTitleTest(softAssertions, indexPage.getTitle());
+        differentElementsPageUtils.homePageTitleTest(softAssertions, propertyReader.getHomePageTitle());
 
         // 3. Perform login
         differentElementsPageUtils.performLogin(propertyReader.getLogin(), propertyReader.getPassword());

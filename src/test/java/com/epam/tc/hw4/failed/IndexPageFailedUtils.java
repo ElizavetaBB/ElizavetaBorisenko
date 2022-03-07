@@ -11,17 +11,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class IndexPageFailedUtils extends IndexPageUtils {
 
-    public IndexPageFailedUtils(WebDriver webDriver, WebDriverWait wait, IndexPage indexPage) {
-        super(webDriver, wait, indexPage);
+    public IndexPageFailedUtils(WebDriver webDriver, WebDriverWait wait) {
+        super(webDriver, wait);
     }
 
     @Override
-    @Step("Test the existence of the frame with Frame Button with failure")
-    public void iframeTest(SoftAssertions softAssertions) {
+    @Step("Test the existence of the frame with button {frameButtonName} with failure")
+    public void iframeTest(SoftAssertions softAssertions, String frameButtonName) {
         indexPage.switchToFrameWithButton();
         IndexPage indexPage1 = new IndexPage(this.driver, this.driverWait);
         WebElement button = indexPage1.getFrameButton();
-        softAssertions.assertThat(button.getAttribute("value")).isNotEqualTo(IndexPageData.frameButton);
+        softAssertions.assertThat(button.getAttribute("value")).isNotEqualTo(frameButtonName);
         indexPage1.switchToDefaultContent();
     }
 

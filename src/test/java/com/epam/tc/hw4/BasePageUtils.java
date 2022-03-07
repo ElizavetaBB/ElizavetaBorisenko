@@ -13,10 +13,10 @@ public abstract class BasePageUtils {
     protected WebDriverWait driverWait;
     protected IndexPage indexPage;
 
-    protected BasePageUtils(WebDriver webDriver, WebDriverWait webDriverWait, IndexPage indexPage) {
+    protected BasePageUtils(WebDriver webDriver, WebDriverWait webDriverWait) {
         this.driver = webDriver;
         this.driverWait = webDriverWait;
-        this.indexPage = indexPage;
+        indexPage = new IndexPage(driver, driverWait);
     }
 
     @Step("Open Home Page with url {url}")
