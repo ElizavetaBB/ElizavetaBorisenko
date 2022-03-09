@@ -1,4 +1,4 @@
-package com.epam.tc.hw4;
+package com.epam.tc.hw4.voids;
 
 import com.epam.tc.hw4.components.HeaderComponent;
 import com.epam.tc.hw4.components.LeftMenuComponent;

@@ -2,7 +2,6 @@ package com.epam.tc.hw4.ex2;
 
 import com.epam.tc.hw4.BasePageTest;
 import com.epam.tc.hw4.PropertyReader;
-import com.epam.tc.hw4.voids.IndexPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;

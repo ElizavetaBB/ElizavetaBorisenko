@@ -3,7 +3,6 @@ package com.epam.tc.hw4.failed;
 import com.epam.tc.hw4.BasePageTest;
 import com.epam.tc.hw4.PropertyReader;
 import com.epam.tc.hw4.ex1.IndexPageData;
-import com.epam.tc.hw4.ex1.IndexPageUtils;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;

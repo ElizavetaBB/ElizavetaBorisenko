@@ -1,6 +1,5 @@
 package com.epam.tc.hw4.voids;
 
-import com.epam.tc.hw4.AbstractBasePage;
 import com.epam.tc.hw4.components.LogComponent;
 import java.util.List;
 import java.util.stream.Collectors;

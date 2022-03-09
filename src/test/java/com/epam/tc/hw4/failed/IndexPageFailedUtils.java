@@ -1,6 +1,5 @@
 package com.epam.tc.hw4.failed;
 
-import com.epam.tc.hw4.ex1.IndexPageData;
 import com.epam.tc.hw4.ex1.IndexPageUtils;
 import com.epam.tc.hw4.voids.IndexPage;
 import io.qameta.allure.Step;

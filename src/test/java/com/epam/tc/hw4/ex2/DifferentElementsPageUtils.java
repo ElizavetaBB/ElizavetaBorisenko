@@ -3,7 +3,6 @@ package com.epam.tc.hw4.ex2;
 import com.epam.tc.hw4.BasePageUtils;
 import com.epam.tc.hw4.components.LogComponent;
 import com.epam.tc.hw4.voids.DifferentElementsPage;
-import com.epam.tc.hw4.voids.IndexPage;
 import io.qameta.allure.Step;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
