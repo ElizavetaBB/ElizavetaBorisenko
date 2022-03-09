@@ -17,7 +17,8 @@
         <calculator.systemPath>${test.resources.dir}/calculator-1.0.jar</calculator.systemPath>
         <testng.configs.path>${project.build.testOutputDirectory}/testng</testng.configs.path>
         <testng.hw1.configs.path>${testng.configs.path}/hw1</testng.hw1.configs.path>
-        <testng.suite.file>${testng.hw1.configs.path}/SumSubtractSuite.xml</testng.suite.file>
+        <testng.hw5.configs.path>${testng.configs.path}/hw5</testng.hw5.configs.path>
+        <testng.suite.file>${testng.hw5.configs.path}/HW5_Suite.xml</testng.suite.file>
 
         <testng.version>7.5</testng.version>
         <assertj-core.version>3.22.0</assertj-core.version>
@@ -25,6 +26,15 @@
         <checkstyle.version>9.2.1</checkstyle.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+        <selenium-java.version>4.1.2</selenium-java.version>
+        <webdrivermanager.version>4.4.3</webdrivermanager.version>
+        <slf4j-simple.version>1.7.36</slf4j-simple.version>
+        <lombok.version>1.18.20</lombok.version>
+        <allure-testng.version>2.17.3</allure-testng.version>
+        <commons-io.version>2.4</commons-io.version>
+        <aspectj.version>1.9.5</aspectj.version>
+        <allure-maven.version>2.11.2</allure-maven.version>
+        <cucumber.version>7.2.3</cucumber.version>
     </properties>
 
     <dependencies>
@@ -47,6 +57,34 @@
             <scope>system</scope>
             <systemPath>${calculator.systemPath}</systemPath>
         </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure-testng.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -56,10 +94,18 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
+                    <argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
                     <suiteXmlFiles>
                         <suiteXmlFiles>${testng.suite.file}</suiteXmlFiles>
                     </suiteXmlFiles>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -115,7 +161,24 @@
                 <testng.suite.file>${testng.hw1.configs.path}/MultiplyDivideSuite.xml</testng.suite.file>
             </properties>
         </profile>
+        <profile>
+            <id>Homework5</id>
+            <properties>
+                <testng.suite.file>${testng.hw5.configs.path}/HW5_Suite.xml</testng.suite.file>
+            </properties>
+        </profile>
     </profiles>
+
+    <reporting>
+        <excludeDefaults>true</excludeDefaults>
+        <plugins>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven.version}</version>
+            </plugin>
+        </plugins>
+    </reporting>
 
 </project>
 
