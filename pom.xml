@@ -17,7 +17,8 @@
         <calculator.systemPath>${test.resources.dir}/calculator-1.0.jar</calculator.systemPath>
         <testng.configs.path>${project.build.testOutputDirectory}/testng</testng.configs.path>
         <testng.hw1.configs.path>${testng.configs.path}/hw1</testng.hw1.configs.path>
-        <testng.suite.file>${testng.hw1.configs.path}/SumSubtractSuite.xml</testng.suite.file>
+        <testng.hw2.configs.path>${testng.configs.path}/hw2</testng.hw2.configs.path>
+        <testng.suite.file>${testng.hw2.configs.path}/Exercise1_Suite.xml</testng.suite.file>
 
         <testng.version>7.5</testng.version>
         <assertj-core.version>3.22.0</assertj-core.version>
@@ -25,6 +26,8 @@
         <checkstyle.version>9.2.1</checkstyle.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+        <selenium-java.version>4.1.2</selenium-java.version>
+        <webdrivermanager.version>4.4.3</webdrivermanager.version>
     </properties>
 
     <dependencies>
@@ -46,6 +49,16 @@
             <version>${calculator.version}</version>
             <scope>system</scope>
             <systemPath>${calculator.systemPath}</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
         </dependency>
     </dependencies>
 
@@ -113,6 +126,18 @@
             <id>MultiplyAndDivideTests</id>
             <properties>
                 <testng.suite.file>${testng.hw1.configs.path}/MultiplyDivideSuite.xml</testng.suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>Exercise_1 Homework_2</id>
+            <properties>
+                <testng.suite.file>${testng.hw2.configs.path}/Exercise1_Suite.xml</testng.suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>Exercise_2 Homework_2</id>
+            <properties>
+                <testng.suite.file>${testng.hw2.configs.path}/Exercise2_Suite.xml</testng.suite.file>
             </properties>
         </profile>
     </profiles>
