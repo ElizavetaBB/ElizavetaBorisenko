@@ -12,6 +12,7 @@ public abstract class AbstractBasePage {
     protected WebDriverWait wait;
     protected HeaderComponent header;
     protected LeftMenuComponent leftMenu;
+    private static final String BASE_URL = "https://jdi-testing.github.io/jdi-light/";
 
     protected AbstractBasePage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
@@ -33,4 +34,7 @@ public abstract class AbstractBasePage {
         return driver.getTitle();
     }
 
+    protected void open(String url) {
+        driver.navigate().to(BASE_URL + url);
+    }
 }

@@ -18,6 +18,9 @@ public class HeaderComponent extends AbstractBaseComponent {
     @FindBy(xpath = "//ul[@class='dropdown-menu']/li/*[contains(text(),'Different elements')]")
     private WebElement differentElementsPageLink;
 
+    @FindBy(xpath = "//ul[@class='dropdown-menu']/li/*[contains(text(),'User Table')]")
+    private WebElement userTablePageLink;
+
     private LoginComponent loginComponent;
 
     public HeaderComponent(WebDriver driver, WebDriverWait wait) {
@@ -40,8 +43,15 @@ public class HeaderComponent extends AbstractBaseComponent {
                 .collect(Collectors.toList());
     }
 
-    public void openDifferentElementsPage() {
+    public void clickServiceLink() {
         serviceLink.click();
+    }
+
+    public void openDifferentElementsPage() {
         differentElementsPageLink.click();
+    }
+
+    public void openUserTablePage() {
+        userTablePageLink.click();
     }
 }

@@ -26,6 +26,10 @@ public class IndexPage extends AbstractBasePage {
         super(driver, wait);
     }
 
+    public void open() {
+        open("index.html");
+    }
+
     public List<WebElement> getImages() {
         return images;
     }
@@ -58,10 +62,6 @@ public class IndexPage extends AbstractBasePage {
 
     public WebElement getFrameButton() {
         return frameButton;
-    }
-
-    public void openDifferentElementsPage() {
-        header().openDifferentElementsPage();
     }
 
 }

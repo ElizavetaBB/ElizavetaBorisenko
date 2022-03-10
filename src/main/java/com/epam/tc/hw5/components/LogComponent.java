@@ -16,6 +16,14 @@ public class LogComponent extends AbstractBaseComponent {
         super(driver, wait);
     }
 
+    public List<String> getLogRowsByExpectedValue(String element, String expectedValue) {
+        return logRows
+                .stream()
+                .map(WebElement::getText)
+                .filter(elem -> elem.matches(".*" + element + ".*" + expectedValue))
+                .collect(Collectors.toList());
+    }
+
     public List<String> getLogRowsByMatchString(String row) {
         return logRows
                 .stream()
