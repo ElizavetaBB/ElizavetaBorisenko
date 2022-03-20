@@ -37,14 +37,14 @@ public class BaseDifferentElementsPageUtils extends BasePageUtils {
     // 5. Open through the header menu Service -> Different Elements Page
     protected void openDifferentElementsPageAndCheck() {
         String title = openDifferentElementsPageAndReturnTitle();
-        String expectedPageTitle = DifferentElementsPageData.differentElementsPageTitle;
+        String expectedPageTitle = DifferentElementsPageData.DIFFERENT_ELEMENTS_PAGE_TITLE;
 
         softAssertions.assertThat(title).as("Different Elements Page Title")
                 .isEqualTo(expectedPageTitle);
     }
 
     protected List<WebElement> clickAndReturnCheckboxes() {
-        List<String> checkboxesNames = DifferentElementsPageData.checkboxesNames;
+        List<String> checkboxesNames = DifferentElementsPageData.CHECKBOXES_NAMES;
         differentElementsPage.clickCheckBoxes(checkboxesNames);
 
         return differentElementsPage.getCheckboxesByName(checkboxesNames);
@@ -57,7 +57,7 @@ public class BaseDifferentElementsPageUtils extends BasePageUtils {
     }
 
     protected WebElement clickAndReturnRadioButton() {
-        String radioButtonName = DifferentElementsPageData.radioButtonName;
+        String radioButtonName = DifferentElementsPageData.RADIO_BUTTON_NAME;
         differentElementsPage.clickRadioButton(radioButtonName);
 
         return differentElementsPage.getRadioButtonByName(radioButtonName);
@@ -71,7 +71,7 @@ public class BaseDifferentElementsPageUtils extends BasePageUtils {
 
     // 8. Select in dropdown Yellow
     protected void selectDropdownAndCheck() {
-        String dropdownName = DifferentElementsPageData.dropdownName;
+        String dropdownName = DifferentElementsPageData.DROPDOWN_NAME;
         differentElementsPage.selectDropdown(dropdownName);
 
         softAssertions.assertThat(differentElementsPage.getSelectedDropdownText())
@@ -91,14 +91,14 @@ public class BaseDifferentElementsPageUtils extends BasePageUtils {
     protected void checkLogForAllElements() {
         LogComponent logComponent = getLogComponent();
 
-        List<String> checkboxesLog = DifferentElementsPageData.checkboxesLog;
+        List<String> checkboxesLog = DifferentElementsPageData.CHECKBOXES_LOG;
         checkboxesLog.forEach(elem -> softAssertions.assertThat(
                 logComponent.getLogRowsByMatchString(elem).size()).isNotZero());
 
-        String radioLog = DifferentElementsPageData.radioLog;
+        String radioLog = DifferentElementsPageData.RADIO_LOG;
         softAssertions.assertThat(logComponent.getLogRowsByMatchString(radioLog).size()).isNotZero();
 
-        String dropdownLog = DifferentElementsPageData.dropdownLog;
+        String dropdownLog = DifferentElementsPageData.DROPDOWN_LOG;
         softAssertions.assertThat(logComponent.getLogRowsByMatchString(dropdownLog).size()).isNotZero();
     }
 }

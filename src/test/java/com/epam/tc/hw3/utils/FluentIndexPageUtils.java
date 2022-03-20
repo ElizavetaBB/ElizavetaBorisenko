@@ -23,7 +23,7 @@ public class FluentIndexPageUtils extends BaseIndexPageUtils {
     @Override
     public void testFrameWithFrameButtonExistence() {
         softAssertions.assertThat(indexFluentPage.switchToFrameWithButton().getFrameButton()
-                .getAttribute("value")).isEqualTo(IndexPageData.frameButton);
+                .getAttribute("value")).isEqualTo(IndexPageData.FRAME_BUTTON);
         indexPage.switchToDefaultContent();
     }
 }

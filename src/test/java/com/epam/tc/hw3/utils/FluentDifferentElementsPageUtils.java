@@ -30,7 +30,7 @@ public class FluentDifferentElementsPageUtils extends BaseDifferentElementsPageU
 
     @Override
     protected List<WebElement> clickAndReturnCheckboxes() {
-        List<String> checkboxesNames = DifferentElementsPageData.checkboxesNames;
+        List<String> checkboxesNames = DifferentElementsPageData.CHECKBOXES_NAMES;
 
         return differentElementsFluentPage.clickCheckBoxes(checkboxesNames)
                 .getCheckboxesByName(checkboxesNames);
@@ -38,7 +38,7 @@ public class FluentDifferentElementsPageUtils extends BaseDifferentElementsPageU
 
     @Override
     protected WebElement clickAndReturnRadioButton() {
-        String radioButtonName = DifferentElementsPageData.radioButtonName;
+        String radioButtonName = DifferentElementsPageData.RADIO_BUTTON_NAME;
 
         return differentElementsFluentPage.clickRadioButton(radioButtonName)
                 .getRadioButtonByName(radioButtonName);
@@ -46,7 +46,7 @@ public class FluentDifferentElementsPageUtils extends BaseDifferentElementsPageU
 
     @Override
     protected void selectDropdownAndCheck() {
-        String dropdownName = DifferentElementsPageData.dropdownName;
+        String dropdownName = DifferentElementsPageData.DROPDOWN_NAME;
 
         softAssertions.assertThat(differentElementsFluentPage.selectDropdown(dropdownName).getSelectedDropdownText())
                 .as("Dropdown selected").isEqualTo(dropdownName);

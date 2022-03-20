@@ -33,7 +33,7 @@ public class BaseIndexPageUtils extends BasePageUtils {
     public void testHeaderSection() {
         List<WebElement> items = indexPage.header().getHeaderItems();
         List<String> itemsTexts = indexPage.header().getHeaderItemsTexts();
-        List<String> expectedItems = IndexPageData.headerItems;
+        List<String> expectedItems = IndexPageData.HEADER_ITEMS;
 
         softAssertions.assertThat(items).as("Header items number").hasSameSizeAs(expectedItems);
         softAssertions.assertThat(items).as("Header items display").allSatisfy(WebElement::isDisplayed);
@@ -51,7 +51,7 @@ public class BaseIndexPageUtils extends BasePageUtils {
     // 7. Assert that there are 4 texts on the Index Page under icons and they have proper text
     public void testTextsUnderImages() {
         List<String> texts = indexPage.getTextsUnderImages();
-        List<String> expectedTexts = IndexPageData.iconsText;
+        List<String> expectedTexts = IndexPageData.ICONS_TEXT;
         softAssertions.assertThat(texts).as("Number of texts under icons").hasSameSizeAs(expectedTexts);
         softAssertions.assertThat(texts).as("Texts under icons").containsExactlyElementsOf(expectedTexts);
     }
@@ -63,7 +63,7 @@ public class BaseIndexPageUtils extends BasePageUtils {
         indexPage.switchToFrameWithButton();
         IndexPage indexPage1 = new IndexPage(this.driver, this.driverWait);
         WebElement button = indexPage1.getFrameButton();
-        softAssertions.assertThat(button.getAttribute("value")).isEqualTo(IndexPageData.frameButton);
+        softAssertions.assertThat(button.getAttribute("value")).isEqualTo(IndexPageData.FRAME_BUTTON);
         indexPage1.switchToDefaultContent();
     }
 
@@ -71,7 +71,7 @@ public class BaseIndexPageUtils extends BasePageUtils {
     public void testLeftSection() {
         List<WebElement> leftItems = indexPage.leftMenu().getItems();
         List<String> leftItemsTitles = indexPage.leftMenu().getItemsTitles();
-        List<String> leftItemsExpected = IndexPageData.leftSectionItems;
+        List<String> leftItemsExpected = IndexPageData.LEFT_SECTION_ITEMS;
         softAssertions.assertThat(leftItems).as("Left Section items number")
                 .hasSameSizeAs(leftItemsExpected);
         softAssertions.assertThat(leftItems).as("Left Section items display").allSatisfy(WebElement::isDisplayed);
