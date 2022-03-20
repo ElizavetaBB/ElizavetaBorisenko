@@ -4,6 +4,7 @@ import com.epam.tc.hw3.components.LogComponent;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -45,7 +46,7 @@ public class BaseDifferentElementsPage extends AbstractBasePage {
         if (expectedRadioButton.isPresent()) {
             return expectedRadioButton.get();
         } else {
-            throw new IllegalArgumentException("Expected radio button " + expected + " doesn't exist");
+            throw new NoSuchElementException("Expected radio button " + expected + " doesn't exist");
         }
     }
 
