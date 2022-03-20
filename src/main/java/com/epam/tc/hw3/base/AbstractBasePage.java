@@ -1,4 +1,4 @@
-package com.epam.tc.hw3;
+package com.epam.tc.hw3.base;
 
 import com.epam.tc.hw3.components.HeaderComponent;
 import com.epam.tc.hw3.components.LeftMenuComponent;

@@ -4,7 +4,6 @@ import java.util.List;
 
 public class IndexPageData {
 
-    public static String PROPERTIES_PATH = "src/test/resources/hw3/test.properties";
     public static List<String> headerItems = List.of(
             "HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"
     );

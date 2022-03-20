@@ -44,4 +44,5 @@ public class HeaderComponent extends AbstractBaseComponent {
         serviceLink.click();
         differentElementsPageLink.click();
     }
+
 }

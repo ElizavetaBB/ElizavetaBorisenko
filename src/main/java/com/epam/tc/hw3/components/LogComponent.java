@@ -24,5 +24,4 @@ public class LogComponent extends AbstractBaseComponent {
                 .collect(Collectors.toList());
     }
 
-
 }

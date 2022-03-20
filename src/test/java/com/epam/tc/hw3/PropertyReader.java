@@ -8,8 +8,8 @@ public class PropertyReader {
 
     private Properties property;
 
-    public PropertyReader(final String path) {
-        try (FileReader fileReader = new FileReader(path)) {
+    public PropertyReader() {
+        try (FileReader fileReader = new FileReader("src/test/resources/hw3/test.properties")) {
             property = new Properties();
             property.load(fileReader);
         } catch (IOException io) {
@@ -20,4 +20,5 @@ public class PropertyReader {
     public String getProperty(final String key) {
         return property.getProperty(key);
     }
+
 }

@@ -26,7 +26,7 @@ public class LoginComponent extends AbstractBaseComponent {
         super(driver, wait);
     }
 
-    public void login(final String login, final String password) {
+    public void login(String login, String password) {
         userIcon.click();
         loginInput.sendKeys(login);
         passwordInput.sendKeys(password);

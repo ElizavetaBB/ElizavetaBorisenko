@@ -26,4 +26,5 @@ public class LeftMenuComponent extends AbstractBaseComponent {
                 .map(WebElement::getText)
                 .collect(Collectors.toList());
     }
+
 }
