@@ -60,7 +60,6 @@ public class IndexPageUtils extends BasePageUtils {
 
     @Step("Test the number of the Left Section Items and their texts")
     public void leftSectionItemsTest(SoftAssertions softAssertions, List<String> expectedLeftSectionItems) {
-        // 11. Assert that there are 5 items in the Left Section are displayed and they have proper text
         Allure.addAttachment("Number of Left Section Items", String.valueOf(expectedLeftSectionItems.size()));
         Allure.addAttachment("Texts of the Left Section items", String.valueOf(expectedLeftSectionItems));
 

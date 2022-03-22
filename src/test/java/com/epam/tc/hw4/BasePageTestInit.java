@@ -10,7 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
-public abstract class BasePageTest {
+public abstract class BasePageTestInit {
 
     protected WebDriver driver;
     protected WebDriverWait wait;

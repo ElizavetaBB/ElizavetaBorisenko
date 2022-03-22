@@ -40,4 +40,18 @@ public abstract class BasePageUtils {
         softAssertions.assertThat(indexPage.header().getLoginComponent().getDisplayedUsername())
                 .isEqualTo(expectedUsername);
     }
+
+    public void checkLoginAndUsername(PropertyReader propertyReader, SoftAssertions softAssertions) {
+        // 1. Open test site by URL
+        openSite(propertyReader.getPageUrl());
+
+        // 2. Assert Browser title
+        homePageTitleTest(softAssertions, propertyReader.getHomePageTitle());
+
+        // 3. Perform login
+        performLogin(propertyReader.getLogin(), propertyReader.getPassword());
+
+        // 4. Assert User name in the left-top side of screen that user is loggined
+        usernameTest(softAssertions, propertyReader.getUserName());
+    }
 }

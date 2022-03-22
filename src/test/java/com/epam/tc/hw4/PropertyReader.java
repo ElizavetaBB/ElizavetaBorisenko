@@ -7,8 +7,8 @@ import java.util.Properties;
 public class PropertyReader {
     private Properties propertyReader;
 
-    public PropertyReader(final String propertyPath) {
-        try (FileReader fileReader = new FileReader(propertyPath)) {
+    public PropertyReader() {
+        try (FileReader fileReader = new FileReader("src/test/resources/hw4/test.properties")) {
             propertyReader = new Properties();
             propertyReader.load(fileReader);
         } catch (IOException io) {

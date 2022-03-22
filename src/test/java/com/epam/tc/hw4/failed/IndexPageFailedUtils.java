@@ -20,6 +20,7 @@ public class IndexPageFailedUtils extends IndexPageUtils {
         indexPage.switchToFrameWithButton();
         IndexPage indexPage1 = new IndexPage(this.driver, this.driverWait);
         WebElement button = indexPage1.getFrameButton();
+        // button has frameButtonName value, but we pretend it's false
         softAssertions.assertThat(button.getAttribute("value")).isNotEqualTo(frameButtonName);
         indexPage1.switchToDefaultContent();
     }

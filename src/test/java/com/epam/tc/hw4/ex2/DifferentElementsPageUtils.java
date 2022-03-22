@@ -25,7 +25,7 @@ public class DifferentElementsPageUtils extends BasePageUtils {
     }
 
     @Step("Test Different Elements Page with expected title {expectedTitle}")
-    public void differentElementsPageTitleTest(SoftAssertions softAssertions, final String expectedTitle) {
+    public void differentElementsPageTitleTest(SoftAssertions softAssertions, String expectedTitle) {
         softAssertions.assertThat(differentElementsPage.getTitle()).as("Different Elements Page Title")
                 .isEqualTo(expectedTitle);
     }
@@ -42,7 +42,7 @@ public class DifferentElementsPageUtils extends BasePageUtils {
     }
 
     @Step("Select radio button {radioButtonName}")
-    public void selectRadioButton(final String radioButtonName) {
+    public void selectRadioButton(String radioButtonName) {
         differentElementsPage.clickRadioButton(radioButtonName);
     }
 
@@ -65,7 +65,7 @@ public class DifferentElementsPageUtils extends BasePageUtils {
 
     @Step("Test checkboxes, radio button and dropdown are in log")
     public void allElementLogTest(SoftAssertions softAssertions, List<String> checkboxesLog,
-                                      final String radioButtonLog, final String dropdownLog) {
+                                      String radioButtonLog, String dropdownLog) {
         LogComponent logComponent = differentElementsPage.logComponent();
 
         checkboxesLog.forEach(elem -> softAssertions.assertThat(
