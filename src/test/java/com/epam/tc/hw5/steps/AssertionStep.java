@@ -1,5 +1,7 @@
 package com.epam.tc.hw5.steps;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.epam.tc.hw5.context.TestContext;
 import com.epam.tc.hw5.voids.DifferentElementsPage;
 import com.epam.tc.hw5.voids.UserTablePage;
@@ -30,65 +32,51 @@ public class AssertionStep {
     @Then("the log row for radio button {string} should be displayed "
             + "in the logs panel on the Different Elements Page")
     public void testRadioButtonSelected(String radioButtonName) {
-        SoftAssertions softAssertions = new SoftAssertions();
         DifferentElementsPage differentElementsPage = TestContext.getInstance()
                 .getObject("different_elements_page", DifferentElementsPage.class);
         List<String> logRow = differentElementsPage.logComponent()
                 .getLogRowsByExpectedValue(radioButtonName, "");
-        softAssertions.assertThat(logRow).isNotNull();
-        softAssertions.assertAll();
+        assertThat(logRow).isNotNull();
     }
 
     @Then("the log row for the dropdown option {string} should be displayed "
             + "in the logs panel on the Different Elements Page")
     public void testDropdownSelected(String dropdownName) {
-        SoftAssertions softAssertions = new SoftAssertions();
         DifferentElementsPage differentElementsPage = TestContext.getInstance()
                 .getObject("different_elements_page", DifferentElementsPage.class);
         List<String> logRow = differentElementsPage.logComponent()
                 .getLogRowsByExpectedValue(dropdownName, "");
-        softAssertions.assertThat(logRow).isNotNull();
-        softAssertions.assertAll();
+        assertThat(logRow).isNotNull();
     }
 
     @Then("{string} page should be opened")
     public void testUserTablePageOpened(String pageTitle) {
-        SoftAssertions softAssertions = new SoftAssertions();
         userTablePage = TestContext.getInstance().getObject("user_table_page", UserTablePage.class);
-        softAssertions.assertThat(userTablePage.getTitle()).isEqualTo(pageTitle);
-        softAssertions.assertAll();
+        assertThat(userTablePage.getTitle()).isEqualTo(pageTitle);
     }
 
     @And("{int} Number Type Dropdowns should be displayed on Users Table on User Table Page")
     public void testDropdownsNumberOnUserTable(int number) {
-        SoftAssertions softAssertions = new SoftAssertions();
         userTablePage = TestContext.getInstance().getObject("user_table_page", UserTablePage.class);
-        softAssertions.assertThat(userTablePage.usersTableComponent().getNumberTypeDropdowns()).hasSize(number);
-        softAssertions.assertAll();
+        assertThat(userTablePage.usersTableComponent().getNumberTypeDropdowns()).hasSize(number);
     }
 
     @And("{int} Usernames should be displayed on Users Table on User Table Page")
     public void testUsernamesNumberOnUserTable(int number) {
-        SoftAssertions softAssertions = new SoftAssertions();
         userTablePage = TestContext.getInstance().getObject("user_table_page", UserTablePage.class);
-        softAssertions.assertThat(userTablePage.usersTableComponent().getUserNames()).hasSize(number);
-        softAssertions.assertAll();
+        assertThat(userTablePage.usersTableComponent().getUserNames()).hasSize(number);
     }
 
     @And("{int} Description texts under images should be displayed on Users Table on User Table Page")
     public void testImagesDescriptionsNumber(int number) {
-        SoftAssertions softAssertions = new SoftAssertions();
         userTablePage = TestContext.getInstance().getObject("user_table_page", UserTablePage.class);
-        softAssertions.assertThat(userTablePage.usersTableComponent().getImagesDescriptions()).hasSize(number);
-        softAssertions.assertAll();
+        assertThat(userTablePage.usersTableComponent().getImagesDescriptions()).hasSize(number);
     }
 
     @And("{int} checkboxes should be displayed on Users Table on User Table Page")
     public void testCheckboxesNumberOnUserTable(int number) {
-        SoftAssertions softAssertions = new SoftAssertions();
         userTablePage = TestContext.getInstance().getObject("user_table_page", UserTablePage.class);
-        softAssertions.assertThat(userTablePage.usersTableComponent().getCheckboxes()).hasSize(number);
-        softAssertions.assertAll();
+        assertThat(userTablePage.usersTableComponent().getCheckboxes()).hasSize(number);
     }
 
     @And("User table should contain following values:")
@@ -125,11 +113,9 @@ public class AssertionStep {
 
     @Then("1 log row has {string} text in log section")
     public void testLogRowForCheckbox(String logRow) {
-        SoftAssertions softAssertions = new SoftAssertions();
         userTablePage = TestContext.getInstance().getObject("user_table_page", UserTablePage.class);
         List<String> log = userTablePage.logComponent().getLogRowsByMatchString(logRow);
-        softAssertions.assertThat(log).isNotNull();
-        softAssertions.assertAll();
+        assertThat(log).isNotNull();
     }
 
 }

@@ -20,14 +20,6 @@ public class PropertyReader {
         return propertyReader.getProperty("username");
     }
 
-    public String getPageUrl() {
-        return propertyReader.getProperty("page_url");
-    }
-
-    public String getHomePageTitle() {
-        return propertyReader.getProperty("home_page_title");
-    }
-
     public String getLogin() {
         return propertyReader.getProperty("login");
     }

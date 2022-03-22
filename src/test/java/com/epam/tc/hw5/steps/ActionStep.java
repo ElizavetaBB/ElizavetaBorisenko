@@ -94,4 +94,5 @@ public class ActionStep {
             component.selectCheckboxForUser(username);
         }
     }
+
 }
