@@ -13,7 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CucumberHooks {
 
     private WebDriver driver;
-    private WebDriverWait wait;
 
     @BeforeAll
     public static void beforeAll() {
@@ -24,7 +23,7 @@ public class CucumberHooks {
     public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         TestContext.getInstance().setObject("driver", driver);
         TestContext.getInstance().setObject("wait", wait);
     }
