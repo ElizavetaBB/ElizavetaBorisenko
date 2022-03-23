@@ -17,6 +17,9 @@
         <calculator.systemPath>${test.resources.dir}/calculator-1.0.jar</calculator.systemPath>
         <testng.configs.path>${project.build.testOutputDirectory}/testng</testng.configs.path>
         <testng.hw1.configs.path>${testng.configs.path}/hw1</testng.hw1.configs.path>
+        <testng.hw2.configs.path>${testng.configs.path}/hw2</testng.hw2.configs.path>
+        <testng.hw3.configs.path>${testng.configs.path}/hw3</testng.hw3.configs.path>
+        <testng.hw4.configs.path>${testng.configs.path}/hw4</testng.hw4.configs.path>
         <testng.hw5.configs.path>${testng.configs.path}/hw5</testng.hw5.configs.path>
         <testng.suite.file>${testng.hw5.configs.path}/HW5_Suite.xml</testng.suite.file>
 
@@ -28,6 +31,9 @@
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
         <selenium-java.version>4.1.2</selenium-java.version>
         <webdrivermanager.version>4.4.3</webdrivermanager.version>
+        <allure-testng.version>2.17.3</allure-testng.version>
+        <aspectj.version>1.9.5</aspectj.version>
+        <allure-maven.version>2.11.2</allure-maven.version>
         <cucumber.version>7.2.3</cucumber.version>
     </properties>
 
@@ -64,6 +70,12 @@
         </dependency>
 
         <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure-testng.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>${cucumber.version}</version>
@@ -82,10 +94,18 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
+                    <argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
                     <suiteXmlFiles>
                         <suiteXmlFiles>${testng.suite.file}</suiteXmlFiles>
                     </suiteXmlFiles>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -142,12 +162,47 @@
             </properties>
         </profile>
         <profile>
+            <id>Exercise_1 Homework_2</id>
+            <properties>
+                <testng.suite.file>${testng.hw2.configs.path}/Exercise1_Suite.xml</testng.suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>Exercise_2 Homework_2</id>
+            <properties>
+                <testng.suite.file>${testng.hw2.configs.path}/Exercise2_Suite.xml</testng.suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>Homework3</id>
+            <properties>
+                <testng.suite.file>${testng.hw3.configs.path}/HW3_Suite.xml</testng.suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>Homework4</id>
+            <properties>
+                <testng.suite.file>${testng.hw4.configs.path}/HW4_Suite.xml</testng.suite.file>
+            </properties>
+        </profile>
+        <profile>
             <id>Homework5</id>
             <properties>
                 <testng.suite.file>${testng.hw5.configs.path}/HW5_Suite.xml</testng.suite.file>
             </properties>
         </profile>
     </profiles>
+
+    <reporting>
+        <excludeDefaults>true</excludeDefaults>
+        <plugins>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven.version}</version>
+            </plugin>
+        </plugins>
+    </reporting>
 
 </project>
 
