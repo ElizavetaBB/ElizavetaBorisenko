@@ -21,7 +21,8 @@
         <testng.hw3.configs.path>${testng.configs.path}/hw3</testng.hw3.configs.path>
         <testng.hw4.configs.path>${testng.configs.path}/hw4</testng.hw4.configs.path>
         <testng.hw5.configs.path>${testng.configs.path}/hw5</testng.hw5.configs.path>
-        <testng.suite.file>${testng.hw5.configs.path}/HW5_Suite.xml</testng.suite.file>
+        <testng.hw6.configs.path>${testng.configs.path}/hw6</testng.hw6.configs.path>
+        <testng.suite.file>${testng.hw6.configs.path}/HW6_Suite.xml</testng.suite.file>
 
         <testng.version>7.5</testng.version>
         <assertj-core.version>3.22.0</assertj-core.version>
@@ -35,7 +36,7 @@
         <aspectj.version>1.9.5</aspectj.version>
         <allure-maven.version>2.11.2</allure-maven.version>
         <cucumber.version>7.2.3</cucumber.version>
-    </properties>
+       </properties>
 
     <dependencies>
         <dependency>
@@ -189,6 +190,12 @@
             <id>Homework5</id>
             <properties>
                 <testng.suite.file>${testng.hw5.configs.path}/HW5_Suite.xml</testng.suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>Homework6</id>
+            <properties>
+                <testng.suite.file>${testng.hw6.configs.path}/HW6_Suite.xml</testng.suite.file>
             </properties>
         </profile>
     </profiles>
